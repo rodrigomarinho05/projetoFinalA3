@@ -5,8 +5,9 @@ public class Peca extends Produto{
         String descricao, 
         String marca, 
         String modelo, 
-        int ano
+        int ano,
+        double preco
     ) {
-        super(nome, descricao, marca, modelo, ano);
+        super(nome, descricao, marca, modelo, ano, preco);
     }
 }

@@ -1,7 +1,5 @@
 import java.util.UUID;
 
-
-
 public abstract class Produto {
     private UUID id;
     private String nome;
@@ -17,7 +15,7 @@ public abstract class Produto {
         String marca, 
         String modelo, 
         int ano,
-        int preco
+        double preco
     ) {
         this.id = gerarID();
         this.nome = nome;

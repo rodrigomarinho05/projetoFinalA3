@@ -3,33 +3,29 @@ import java.util.Scanner;
 
 public class Main {
     static ArrayList<Produto> estoque = new ArrayList<>();
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int opcao;
-        do {
-            System.out.println("Menu:");
-
-            System.out.println("1.   Listar estoque");
-            System.out.println("2. Criar produto");
-            System.out.println("3. Deletar produto");
-            System.out.println("4. Alterar produto");
-            System.out.println("0. Sair");
-            System.out.print("Opção: ");
-            opcao = scanner.nextInt();
-
-            switch(opcao) {
-                case 1:
-                    listarEstoque();
-                    break;
-                case 2:
-                    criarProduto(scanner);
-                    break;
-            }
-        } while (opcao != 0);
-    }
-
-    private static void listarEstoque() {
-        for (Produto produto : estoque) {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            int opcao;
+            do {
+                System.out.println("Menu:");
+    
+                System.out.println("1. Listar estoque");
+                System.out.println("2. Criar produto");
+                System.out.println("3. Deletar produto");
+                System.out.println("4. Alterar produto");
+                System.out.println("0. Sair");
+                System.out.print("Digite uma opcao: ");
+                opcao = scanner.nextInt();
+    
+                switch(opcao) {
+                    case 1 -> listarEstoque();
+                    case 2 -> criarProduto(scanner);
+                }
+            } while (opcao != 0);
+        }
+    
+        private static void listarEstoque() {
+            for (Produto produto : estoque) {
             System.out.println("Nome: " + produto.getNome());
             System.out.println("Descricao: " + produto.getDescricao());
             System.out.println("Marca: " + produto.getMarca());
@@ -58,8 +54,11 @@ public class Main {
         System.out.print("Qual o ano de fabricacao do produto: ");
         int ano = scanner.nextInt();
 
+        System.out.print("Qual o preco do produto: ");
+        double preco = scanner.nextDouble();
 
-        Peca novaPeca = new Peca(nome, descricao, marca, modelo, ano);
+
+        Peca novaPeca = new Peca(nome, descricao, marca, modelo, ano, preco);
     
         estoque.add(novaPeca);
         System.out.println("Produto criado com sucesso!");
