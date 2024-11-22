@@ -14,8 +14,9 @@ public class Main {
             System.out.println("2. Criar produto");
             System.out.println("3. Deletar produto");
             System.out.println("4. Alterar produto");
+            System.out.println("5. Buscar produto");
             System.out.println("0. Sair");
-            System.out.print("\nDigite uma opcao: ");
+            System.out.print("\nDigite uma opção: ");
     
             if (scanner.hasNextInt()) {
                 opcao = scanner.nextInt();
@@ -26,8 +27,9 @@ public class Main {
                     case 2 -> criarProduto(scanner);
                     case 3 -> deletarProduto(scanner);
                     case 4 -> alterarProduto(scanner);
+                    case 5 -> buscarProduto(scanner);
                     case 0 -> sairDoSistema();
-                    default -> System.out.println("\nOpcao invalida! Escolha um numero entre 0 e 4.");
+                    default -> System.out.println("\nOpcao invalida! Escolha um numero entre 0 e 5.");
                 }
             } else {
                 System.out.println("Entrada invalida! Por favor, insira apenas numeros.");
@@ -149,6 +151,23 @@ public class Main {
             System.out.println("Produto alterado com sucesso!");
         } else {
             System.out.println("Indice invalido. Operacao cancelada.");
+        }
+    }
+
+    private static void buscarProduto(Scanner scanner) {
+        System.out.print("Digite o nome do produto a ser buscado: ");
+        String nome = scanner.nextLine();
+        boolean encontrado = false;
+
+        for (Produto produto : estoque) {
+            if (produto.getNome().equalsIgnoreCase(nome)) {
+                System.out.println(produto.getNome());
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("Produto nao encontrado.");
         }
     }
 }

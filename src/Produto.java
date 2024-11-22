@@ -26,6 +26,7 @@ public abstract class Produto {
         this.preco = preco;
     }
 
+
     public static UUID gerarID() {
         return UUID.randomUUID();
     }
@@ -76,5 +77,10 @@ public abstract class Produto {
 
     public void setPreco(double preco){
         this.preco = preco;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + ", Descrição: " + descricao + ", Marca: " + marca + ", Modelo: " + modelo + ", Ano: " + ano + ", Preço: R$ " + preco;
     }
 }
